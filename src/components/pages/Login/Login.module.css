@@ -1,0 +1,13 @@
+.container {
+    min-height: 100vh;
+    min-width: 100vw;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.submit {
+    width: auto;
+    margin: 12px 0 8px
+
+}
