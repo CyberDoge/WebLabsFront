@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Button, Grid, Link, TextField} from "@material-ui/core";
+import {Button, Grid, Link, TextField, Typography} from "@material-ui/core";
 import styles from "./Login.module.css"
 import {Redirect} from "react-router-dom";
-import {HOST, LOGIN_PATH} from "../../../consts/paths";
+import {signIn} from "../../../requests/users";
 
 
 class Login extends Component {
@@ -15,21 +15,11 @@ class Login extends Component {
 
     event.preventDefault();
     const {login, password} = this.state;
-    const response = await fetch(`${HOST}/${LOGIN_PATH}`, {
-      method: 'POST',
-      mode: 'cors',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify({login, password})
-    });
-    if (response.status === 403) {
-      this.setState({error: true})
-    } else if (response.status === 200) {
-      console.log("success")
-      this.setState({error: false, success: true})
+    try {
+      await signIn(login, password);
+      this.setState({success: true})
+    } catch (e) {
+      this.setState({error: true, errorMessage: e.message})
     }
   };
 
@@ -92,6 +82,12 @@ class Login extends Component {
                     Sign In
                   </Button>
                 </Grid>
+              </Grid>
+              <Grid className={styles.messageContainer}>
+                {this.state.error &&
+                <Typography color={"error"}>
+                  {this.state.message ? this.state.message : "Something gone wrong"}
+                </Typography>}
               </Grid>
             </form>
           </Grid>
