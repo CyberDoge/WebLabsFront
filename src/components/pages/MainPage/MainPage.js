@@ -7,7 +7,7 @@ class MainPage extends Component {
 
   render() {
     return (
-      <Grid className={styles.container} justify={"center"} alignItems={"center"} container>
+      <Grid className={styles.container} justify={"space-around"} alignItems={"center"} container>
         <Grid item>
           <Typography>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -29,6 +29,9 @@ class MainPage extends Component {
             amet purus gravida quis. Molestie a iaculis at erat pellentesque adipiscing. Sed risus pretium quam
             vulputate dignissim suspendisse in est ante. Morbi enim nunc faucibus a pellentesque sit amet porttitor.
           </Typography>
+        </Grid>
+        <Grid item>
+          <Link className={styles.link} href={"/result"}>Home</Link>
         </Grid>
         <Grid item>
           <Link className={styles.link} href={"/login"}>🙏🏻Admin!🙏 </Link>

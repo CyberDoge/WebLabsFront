@@ -12,7 +12,7 @@ export async function signIn(login, password) {
     body: JSON.stringify({login, password})
   });
   if (response.status === 403) {
-    throw new RequestError(response.status, response.text());
+    throw new RequestError(response.status, await response.text());
   } else if (response.status === 200) {
     return response.text()
   }

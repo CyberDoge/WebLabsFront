@@ -86,7 +86,7 @@ class Login extends Component {
               <Grid className={styles.messageContainer}>
                 {this.state.error &&
                 <Typography color={"error"}>
-                  {this.state.message ? this.state.message : "Something gone wrong"}
+                  {this.state.errorMessage ? this.state.errorMessage : "Something gone wrong"}
                 </Typography>}
               </Grid>
             </form>

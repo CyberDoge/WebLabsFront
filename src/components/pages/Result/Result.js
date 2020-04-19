@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {
   Box,
-  Divider,
   ExpansionPanel,
   ExpansionPanelDetails,
   ExpansionPanelSummary,
-  Grid, Link,
+  Grid,
+  Link,
   Typography
 } from "@material-ui/core";
 import {Redirect} from "react-router-dom";
@@ -70,7 +70,7 @@ class Result extends Component {
                   </Grid>
                   <Grid direction={"column"} container>
                     {this.state.user?.autoRentals.map(ar => (
-                      <>
+                      <div key={ar.id}>
                         <Grid className={styles.arrayContainer}>
                           <Typography className={styles.arField}>auto rental id: {ar.id}</Typography>
                           <Typography className={styles.arField}>autos:</Typography>
@@ -81,7 +81,7 @@ class Result extends Component {
                           </Grid>
                         </Grid>
                         <div className={styles.divider}/>
-                      </>
+                      </div>
                     ))}
                   </Grid>
                 </Grid>

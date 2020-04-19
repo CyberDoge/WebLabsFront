@@ -3,9 +3,13 @@
     padding: 10%;
 }
 
-.link:hover {
+.link {
     padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
+.link:hover {
+    border: 1px solid cornflowerblue;
     color: dodgerblue;
-    border: 1px solid blue;
-  border-radius: 8px;
 }
